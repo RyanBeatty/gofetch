@@ -5,8 +5,25 @@ import (
 	"fmt"
 )
 
+
+// Defines the interface by which the UPI module
+// of the FTP protocol defined by RFC 959 
+// (http://www.w3.org/Protocols/rfc959/2_Overview.html)
 type UPI interface {
+
+	// Takes an address string and attempts to setup a TCP
+	// connection with the specified address.
+	//
+	// PARAMETERS **NOT FINALIZED**:
+	//	- address: address string of host we wish to connect to
+	//	- port: port string we wish to connect to
+	//
+	// RETURNS:
+	//	- error: if there is an error making the connection
+	//
 	Connect(address, port string) error
+
+	// Closes the FTP connection
 	Close()
 	
 }
